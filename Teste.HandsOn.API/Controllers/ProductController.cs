@@ -1,21 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Teste.HandsOn.API.Domain;
 using Teste.HandsOn.Infra.Context;
 
 namespace Teste.HandsOn.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductController : ControllerBase
     {
-        private static List<Product> products = new List<Product>
-        {
-            new Product {
-                Id = 1,
-                Name = "T-shirt",
-                Price = 5.50
-            }
-        };
+        private static List<Product> products = new List<Product>();
 
         [HttpGet]
         public async Task<ActionResult<Product>> GetProductByIdAsync(int id)
